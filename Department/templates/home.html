@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Anime Website{% endblock %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <img src="{% static 'image/lotm.jpg' %}" alt="Background" class="img-fluid" />
+    
+    <div class="overlay-content">
+        <h2>#1 Spotlight</h2>
+        <h3>Lord Of Mysteries</h3>
+        <div class="tags">
+            <span>PG</span>
+            <span>4k</span>
+            <span>DUB</span>
+            <span>SUB</span>
+            <span>TV</span>
+            <span>Ep 10</span>
+        </div>
+        <p>
+            Lord of the Mysteries (LoTM) is a Chinese web novel about Zhou Mingrui, a modern man who transmigrates into the body of Klein Moretti
+            in a world similar to the Victorian era but filled with supernatural powers and ancient deities...
+        </p>
+        <button class="button-53" role="button">Watch Now</button>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}
