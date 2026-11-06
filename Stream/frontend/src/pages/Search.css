@@ -1,0 +1,84 @@
+
+.search-page {
+    min-height: 100vh;
+    padding: 55px 45px 80px;
+    background: #111;
+    color: white;
+}
+
+/* Heading */
+.search-page h1 {
+    margin: 0 0 30px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.search-page h1::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 2px;
+    margin-top: 12px;
+    background: white;
+}
+
+/* Results grid */
+.search-results {
+    padding-left: 62px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 32px 18px;
+    max-width: 1400px;
+}
+
+/* Empty search message */
+.search-page > p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+/* Card hover effect */
+.search-results .anime-card {
+    transition: transform 0.2s ease;
+}
+
+.search-results .anime-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .search-results {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1000px) {
+    .search-results {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .search-page {
+        padding: 40px 20px 60px;
+    }
+
+    .search-results {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .search-page h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+

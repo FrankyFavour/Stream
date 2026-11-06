@@ -1,0 +1,83 @@
+/* /* Profile Page 
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 40px 20px;
+  color: white;
+}
+
+.profile-card {
+  background: #2b2b2b;
+  border-radius: 15px;
+  padding: 30px;
+  width: 320px;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: scale(1.02);
+}
+
+.profile-header {
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #ffb6c1;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.member-since {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.profile-details {
+  text-align: left;
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+.profile-details p {
+  margin: 8px 0;
+}
+
+.logout-btn {
+  background: linear-gradient(90deg, #ff6b81, #ffb6c1);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(90deg, #ff4757, #ff8fa3);
+  transform: scale(1.05);
+}
+
+.profile-extra {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 30px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.2);
+}
+
+.profile-extra h3 {
+  color: #ffb6c1;
+  margin-bottom: 10px;
+}
+ */

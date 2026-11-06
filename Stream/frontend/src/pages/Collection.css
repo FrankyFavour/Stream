@@ -1,0 +1,117 @@
+
+.collection-page {
+    min-height: 100vh;
+    padding: 40px 5%;
+    background: #0b0b0b;
+    color: #fff;
+}
+
+.collection-header {
+    margin-bottom: 30px;
+}
+
+.collection-header h1 {
+    margin: 20px 0 10px;
+    font-size: clamp(28px, 4vw, 42px);
+}
+
+.collection-header p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.collection-back-link {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.collection-back-link:hover {
+    color: #fff;
+}
+
+.collection-results-bar {
+    margin-bottom: 24px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px 16px;
+}
+
+.collection-message {
+    padding: 40px 0;
+    color: #bbb;
+    text-align: center;
+}
+
+.collection-error {
+    color: #ff8585;
+}
+
+.collection-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin: 40px 0 20px;
+}
+
+.collection-pagination button {
+    padding: 10px 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #171717;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.collection-pagination button:hover:not(:disabled) {
+    background: #333;
+}
+
+.collection-pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.collection-pagination span {
+    color: #ccc;
+    font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+    .collection-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .collection-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .collection-page {
+        padding: 28px 4%;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 10px;
+    }
+
+    .collection-pagination {
+        gap: 12px;
+    }
+
+    .collection-pagination button {
+        padding: 9px 12px;
+    }
+}

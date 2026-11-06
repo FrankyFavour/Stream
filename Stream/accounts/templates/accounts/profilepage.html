@@ -1,0 +1,298 @@
+
+{% load static %}
+{% block content %}
+<style>
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #2d002d 70%);
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
+    color: #fff;
+}
+
+/* Navbar */
+header {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(20,0,30,0.9);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 15px rgba(255,20,120,0.3);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff4db8;
+}
+
+/* Search form */
+header .nav-search {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+header .nav-search input {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+header .nav-search button {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #ff1a85;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+header .nav-search button:hover {
+    background: #ff4db8;
+}
+
+/* Floating particle lights */
+body::before {
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+        radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 2px) 0 0,
+        radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px) 50px 50px;
+    background-size: 100px 100px;
+    animation: floatLights 30s linear infinite;
+    z-index:0;
+}
+@keyframes floatLights {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-50px, 30px); }
+    100% { transform: translate(0,0); }
+}
+
+/* Container */
+.edit-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    z-index:1;
+    position: relative;
+}
+
+/* Card */
+.edit-profile-card {
+    background: rgba(20,0,30,0.95);
+    padding: 60px 30px 40px 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(255,20,120,0.5);
+    text-align: center;
+    position: relative;
+}
+
+/* Title */
+.form-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #ff69b4;
+}
+
+/* Avatar Preview */
+.avatar-preview {
+    display: block;
+    margin: 15px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff1a85;
+    box-shadow: 0 0 20px rgba(255,20,120,0.5);
+}
+
+/* Form groups */
+.edit-profile-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.edit-profile-form label {
+    display: block;
+    font-weight: bold;
+    color: #ff85d1;
+    margin-bottom: 8px;
+}
+
+.edit-profile-form input[type="file"],
+.edit-profile-form input[type="text"],
+.edit-profile-form textarea,
+.edit-profile-form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.edit-profile-form input[type="file"]::file-selector-button {
+    background: #ff1a85;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.edit-profile-form input[type="file"]::file-selector-button:hover {
+    background: #ff4db8;
+}
+
+.edit-profile-form input:focus,
+.edit-profile-form textarea:focus,
+.edit-profile-form select:focus {
+    border-color: #ff4db8;
+    box-shadow: 0 0 10px rgba(255,20,120,0.5);
+    background: rgba(255,255,255,0.1);
+}
+
+.edit-profile-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Buttons */
+.save-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg,#ff1a85 0%,#ff4db8 100%);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255,20,120,0.6);
+}
+
+/* Cancel button */
+.cancel-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #ff85d1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    color: #ff1a85;
+}
+
+/* Responsive */
+@media(max-width:500px){
+    .edit-profile-card { padding: 60px 20px 40px 20px; }
+    .avatar-preview { width: 120px; height: 120px; }
+}
+</style>
+
+<!-- Navbar -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Genre</a></li>
+            <li><a href="#">ONAs</a></li>
+            <li><a href="#">News</a></li>
+        </ul>
+    </nav>
+
+   <!--  <div class="nav-search">
+        <form action="{% url 'home' %}" method="get">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit">Go</button>
+        </form>
+    </div>
+
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button style="background:none;border:none;color:#fff;cursor:pointer;">Logout</button>
+                </form> -->
+            </li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+<!-- Edit Profile Card -->
+<div class="edit-profile-container">
+    <div class="edit-profile-card">
+        <h2 class="form-title">🖋️ Update Your Profile</h2>
+
+        <form method="post" enctype="multipart/form-data" class="edit-profile-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_avatar">Profile Picture</label>
+                {{ form.avatar }}
+                {% if profile.avatar %}
+                    <img src="{{ profile.avatar.url }}" alt="Current Avatar" class="avatar-preview">
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_bio">Bio</label>
+                {{ form.bio }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_favorite_genre">Favorite Genre</label>
+                {{ form.favorite_genre }}
+            </div>
+
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+
+        <a href="{% url 'profile' %}" class="cancel-btn">← Back to Profile</a>
+    </div>
+</div>
+{% endblock %}

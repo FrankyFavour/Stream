@@ -1,0 +1,126 @@
+.watch-page {
+    min-height: 100vh;
+    padding: 40px;
+    background: #111;
+    color: white;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+.video-placeholder span {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    font-size: 22px;
+}
+
+.video-placeholder p {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.watch-info {
+    max-width: 1100px;
+    margin: 25px auto 35px;
+}
+
+.watch-info h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.watch-info p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.episode-section {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.episode-section h2 {
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+.episode-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.episode-list button {
+    min-width: 80px;
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #1b1b1b;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.episode-list button:hover {
+    background: #333;
+    color: white;
+}
+
+.episode-button.active {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.episode-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+}
+
+.episode-navigation button {
+    padding: 10px 16px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #1b1b1b;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.episode-navigation button:hover:not(:disabled) {
+    background: #333;
+    color: white;
+}
+
+.episode-navigation button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.episode-navigation span {
+    color: #aaa;
+    font-size: 14px;
+}

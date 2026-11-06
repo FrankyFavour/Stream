@@ -1,0 +1,179 @@
+.hero-banner {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    background: #111;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.75) 35%,
+            rgba(0, 0, 0, 0.25) 70%,
+            rgba(0, 0, 0, 0.5) 100%
+        ),
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.95) 0%,
+            transparent 45%
+        );
+}
+
+.hero-content {
+    position: absolute;
+    left: 60px;
+    bottom: 75px;
+
+    width: 520px;
+
+    color: white;
+}
+
+.hero-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+.hero-content h1 {
+    margin: 12px 0;
+
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+.hero-meta {
+    display: flex;
+    gap: 18px;
+
+    margin-bottom: 15px;
+
+    color: #ccc;
+    font-size: 13px;
+}
+
+.hero-content p {
+    margin: 0 0 25px;
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.watch-button,
+.info-button {
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 4px;
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.watch-button {
+    background: white;
+    color: black;
+}
+
+.watch-button:hover {
+    background: #ddd;
+}
+
+.info-button {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.info-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.hero-dots {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.dot.active {
+    background: white;
+}
+
+.hero-banner {
+    margin-bottom: 20px;
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #111
+    );
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 450px;
+    }
+
+    .hero-content {
+        left: 25px;
+        bottom: 60px;
+        width: calc(100% - 50px);
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 13px;
+    }
+
+    .hero-dots {
+        right: 25px;
+        bottom: 20px;
+    }
+}

@@ -1,0 +1,30 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Neon configuration
+.neon
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Django
+db.sqlite3
+staticfiles/
+media/
+
+# Frontend
+node_modules/
+frontend/dist/
+
+# Private database exports
+anime_data.json
+anime_data_production.json
+
+# Editor files
+.vscode/
+.idea/

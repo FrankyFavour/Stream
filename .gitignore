@@ -1,0 +1,47 @@
+#Parent folder
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Django / Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Database files
+*.sqlite3
+*.db
+
+# User uploads and generated media
+media/
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Django generated files
+staticfiles/
+
+# Private database exports
+anime_data.json
+anime_data_production.json
+
+# Neon configuration
+.neon

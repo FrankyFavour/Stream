@@ -1,0 +1,114 @@
+/* ===============================
+   ANIME DETAIL PAGE STYLING
+=============================== */
+
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1a1b1f, #25262b);
+  border-radius: 16px;
+  color: white;
+}
+
+/* Anime Image */
+.detail img {
+  width: 320px;
+  height: 450px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 192, 203, 0.3);
+}
+
+/* Right side text container */
+.detailtxt {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* Title */
+.detailtxt h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: lightpink;
+  margin-bottom: 15px;
+}
+
+/* Tags (PG, 4k, etc.) */
+.detailtxt .tags {
+  margin: 15px 0 20px;
+}
+
+.detailtxt .tags span {
+  display: inline-block;
+  background: rgba(255, 192, 203, 0.15);
+  color: lightpink;
+  border: 1px solid rgba(255, 192, 203, 0.25);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-right: 8px;
+  transition: background 0.3s ease;
+}
+
+.detailtxt .tags span:hover {
+  background: rgba(255, 192, 203, 0.3);
+}
+
+/* Button */
+.button-53 {
+  margin: 25px 0;
+}
+
+/* Description paragraph */
+.detailtxt p {
+  font-size: 15px;
+  color: #ddd;
+  margin-top: 15px;
+}
+
+/* Additional info (Japanese name, genre, etc.) */
+.detailtxt div p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #ccc;
+  border-left: 3px solid lightpink;
+  padding-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.detailtxt div p:hover {
+  color: white;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .detail {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detail img {
+    width: 80%;
+    height: auto;
+  }
+
+  .detailtxt {
+    max-width: 90%;
+  }
+
+  .detailtxt div p {
+    border-left: none;
+    padding-left: 0;
+  }
+}

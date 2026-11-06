@@ -1,0 +1,1096 @@
+
+/* =========================================
+   ANIMESTREAM — DARK ANIME PROFILE DASHBOARD
+   ========================================= */
+
+/* ---------- Global profile page ---------- */
+
+.profile-page {
+    --bg-main: #090b11;
+    --bg-card: #11141d;
+    --bg-card-hover: #171b27;
+    --border-color: #292e3c;
+    --text-main: #f5f5fa;
+    --text-muted: #a4adc2;
+    --accent: #f12d4b;
+    --accent-dark: #c81e3a;
+
+    min-height: 100vh;
+    background: var(--bg-main);
+    color: var(--text-main);
+    padding-bottom: 60px;
+    font-family: Inter, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+}
+
+.profile-page *,
+.profile-page *::before,
+.profile-page *::after {
+    box-sizing: border-box;
+}
+
+.profile-page h1,
+.profile-page h2,
+.profile-page h3,
+.profile-page p {
+    margin-top: 0;
+}
+
+.profile-page h1,
+.profile-page h2,
+.profile-page h3 {
+    color: var(--text-main);
+}
+
+.profile-page p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.profile-page button,
+.profile-page input,
+.profile-page textarea,
+.profile-page select {
+    font: inherit;
+}
+
+.profile-page button {
+    cursor: pointer;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+/* ---------- Profile hero / banner ---------- */
+
+.profile-header,
+.profile-banner,
+.profile-hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    min-height: 310px;
+    padding: 42px clamp(24px, 6.5vw, 100px);
+    background:
+        radial-gradient(
+            ellipse at 12% 50%,
+            rgba(241, 45, 75, 0.19),
+            transparent 45%
+        ),
+        linear-gradient(
+            110deg,
+            #201017 0%,
+            #101119 48%,
+            #190b13 100%
+        );
+    border-bottom: 1px solid #29232d;
+}
+
+.profile-header::before,
+.profile-banner::before,
+.profile-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 11, 17, 0.08),
+            rgba(9, 11, 17, 0.18) 55%,
+            rgba(9, 11, 17, 0.45)
+        );
+}
+
+.profile-header::after,
+.profile-banner::after,
+.profile-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at 95% 100%,
+            rgba(241, 45, 75, 0.16),
+            transparent 45%
+        );
+}
+
+/* ---------- Avatar ---------- */
+
+.profile-avatar-container,
+.profile-avatar-wrapper {
+    position: relative;
+    flex: 0 0 auto;
+    width: 230px;
+    height: 230px;
+}
+
+.profile-avatar,
+.profile-avatar-container img,
+.profile-avatar-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow:
+        0 0 0 5px rgba(241, 45, 75, 0.12),
+        0 0 38px rgba(241, 45, 75, 0.23);
+}
+
+.profile-avatar-container button,
+.profile-avatar-wrapper button {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #45404b;
+    border-radius: 50%;
+    background: #171923;
+    color: white;
+}
+
+.profile-avatar-container button:hover,
+.profile-avatar-wrapper button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ---------- Profile information ---------- */
+
+.profile-info,
+.profile-header-info,
+.profile-hero-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-info h1,
+.profile-header-info h1,
+.profile-hero-content h1 {
+    margin-bottom: 5px;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    font-weight: 750;
+    letter-spacing: -0.7px;
+}
+
+.profile-username {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.profile-bio {
+    max-width: 650px;
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+}
+
+.profile-meta,
+.profile-details,
+.profile-information {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 22px;
+    margin-top: 20px;
+}
+
+.profile-meta span,
+.profile-details span,
+.profile-information span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.profile-meta strong,
+.profile-details strong,
+.profile-information strong {
+    color: var(--accent);
+}
+
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* ---------- Buttons ---------- */
+
+.profile-page .profile-button,
+.profile-page .edit-profile-button,
+.profile-page .save-profile-button {
+    min-height: 42px;
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    width: 192px;
+    color: var(--text-main);
+    background: #171a24;
+}
+
+.profile-page .profile-button:hover,
+.profile-page .edit-profile-button:hover {
+    border-color: var(--accent);
+}
+
+.profile-page .save-profile-button {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+}
+
+.profile-page .save-profile-button:hover {
+    background: var(--accent-dark);
+}
+
+.profile-page .logout-button {
+    min-height: 42px;
+    padding: 10px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    background: transparent;
+    color: #ff667d;
+}
+
+.profile-page .logout-button:hover {
+    background: rgba(241, 45, 75, 0.12);
+}
+
+/* ---------- Main dashboard layout ---------- */
+
+.profile-dashboard,
+.profile-content,
+.profile-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    align-items: start;
+    gap: 30px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 24px clamp(20px, 4.5vw, 70px) 0;
+}
+
+.profile-main,
+.profile-left-column {
+    min-width: 0;
+}
+
+.profile-sidebar,
+.profile-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* ---------- General profile sections ---------- */
+
+.profile-section,
+.profile-card,
+.profile-info-card,
+.profile-anime-section {
+    min-width: 0;
+    margin-bottom: 24px;
+}
+
+.profile-section h2,
+.profile-card h2,
+.profile-info-card h2,
+.profile-anime-section h2 {
+    margin-bottom: 16px;
+    font-size: 1.35rem;
+    font-weight: 730;
+    letter-spacing: -0.3px;
+}
+
+.profile-anime-subtitle {
+    margin-top: -7px;
+    margin-bottom: 18px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.profile-anime-section + .profile-anime-section {
+    padding-top: 24px;
+    border-top: 1px solid #202430;
+}
+
+/* ---------- My Anime List filters ---------- */
+
+.profile-list-filters,
+.profile-anime-filters,
+.profile-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.profile-list-filters button,
+.profile-anime-filters button,
+.profile-filter-tabs button {
+    padding: 9px 20px;
+    border: 1px solid #252a37;
+    border-radius: 24px;
+    background: #141720;
+    color: #d0d5e3;
+    font-size: 0.88rem;
+}
+
+.profile-list-filters button:hover,
+.profile-anime-filters button:hover,
+.profile-filter-tabs button:hover {
+    border-color: var(--accent);
+    color: white;
+}
+
+.profile-list-filters button.active,
+.profile-anime-filters button.active,
+.profile-filter-tabs button.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+}
+
+/* ---------- Anime card grid ---------- */
+
+.profile-anime-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.profile-anime-item {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #292e3c;
+    border-radius: 11px;
+    background: linear-gradient(180deg, #141720, #0e1017);
+    transition: transform 0.2s ease, border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.profile-anime-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241, 45, 75, 0.7);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.profile-anime-item > a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.profile-anime-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 3.5;
+    object-fit: cover;
+    background: #171923;
+}
+
+.profile-anime-item h3 {
+    margin: 11px 10px 9px;
+    overflow: hidden;
+    color: #f4f5fa;
+    font-size: 0.88rem;
+    font-weight: 650;
+    line-height: 1.45;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-anime-item p {
+    margin: 6px 10px;
+    font-size: 0.78rem;
+}
+
+.profile-anime-item .anime-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 10px 10px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: rgba(45, 190, 145, 0.14);
+    color: #76e2bf;
+    font-size: 0.72rem;
+}
+
+.profile-anime-item .anime-progress {
+    height: 5px;
+    margin: 8px 10px 13px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #303443;
+}
+
+.profile-anime-item .anime-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--accent);
+}
+
+/* ---------- Favourite anime ---------- */
+
+.profile-favorite-heart {
+    color: var(--accent);
+    font-size: 1.15rem;
+}
+
+.profile-favorites-link {
+    color: #ff4c68;
+    text-decoration: none;
+}
+
+.profile-favorites-link:hover {
+    color: #ff8496;
+}
+
+.profile-anime-empty {
+    padding: 24px;
+    border: 1px dashed #303544;
+    border-radius: 12px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* ---------- Quick info / account cards ---------- */
+
+.profile-sidebar .profile-card,
+.profile-sidebar .profile-info-card,
+.profile-right-column .profile-card,
+.profile-right-column .profile-info-card {
+    padding: 19px;
+    border: 1px solid #292e3c;
+    border-radius: 13px;
+    background: linear-gradient(145deg, #131620, #0e1017);
+}
+
+.profile-sidebar h2,
+.profile-right-column h2 {
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.profile-quick-info,
+.profile-info-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-quick-info > div,
+.profile-info-list > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid #202430;
+}
+
+.profile-quick-info > div:last-child,
+.profile-info-list > div:last-child {
+    border-bottom: 0;
+}
+
+.profile-quick-info span,
+.profile-info-list span {
+    color: var(--text-muted);
+    font-size: 0.87rem;
+}
+
+.profile-quick-info strong,
+.profile-info-list strong {
+    color: #f4f5fa;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Account management buttons ---------- */
+
+.profile-manage-account {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-manage-account button,
+.profile-manage-account a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 14px;
+    border: 1px solid #424859;
+    border-radius: 9px;
+    background: transparent;
+    color: #e6e9f2;
+    text-decoration: none;
+    font-size: 0.88rem;
+}
+
+.profile-manage-account button:first-child,
+.profile-manage-account a:first-child {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+}
+
+.profile-manage-account button:hover,
+.profile-manage-account a:hover {
+    border-color: var(--accent);
+}
+
+/* ---------- Bio and profile editing form ---------- */
+
+.profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: var(--bg-card);
+}
+
+.profile-edit-form label {
+    display: block;
+    margin-bottom: 7px;
+    color: #e4e7f1;
+    font-size: 0.9rem;
+}
+
+.profile-edit-form input,
+.profile-edit-form textarea,
+.profile-edit-form select,
+.profile-page input,
+.profile-page textarea,
+.profile-page select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #343a4a;
+    border-radius: 9px;
+    outline: none;
+    background: #0d1018;
+    color: #f5f5fa;
+}
+
+.profile-edit-form textarea,
+.profile-page textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.profile-edit-form input:focus,
+.profile-edit-form textarea:focus,
+.profile-edit-form select:focus,
+.profile-page input:focus,
+.profile-page textarea:focus,
+.profile-page select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(241, 45, 75, 0.1);
+}
+
+.profile-edit-form input::placeholder,
+.profile-edit-form textarea::placeholder {
+    color: #727b90;
+}
+
+.profile-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- Quote card ---------- */
+
+.profile-quote,
+.profile-quote-card {
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    border: 1px solid #392531;
+    border-radius: 13px;
+    background:
+        radial-gradient(
+            ellipse at 100% 100%,
+            rgba(241, 45, 75, 0.2),
+            transparent 65%
+        ),
+        #171019;
+}
+
+.profile-quote::before,
+.profile-quote-card::before {
+    content: "“";
+    display: block;
+    margin-bottom: -5px;
+    color: var(--accent);
+    font-size: 2.7rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.profile-quote p,
+.profile-quote-card p {
+    margin-bottom: 0;
+    color: #d1c9d5;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ---------- Messages and loading ---------- */
+
+.profile-message {
+    margin: 12px 0;
+    color: #7ee2b8;
+    font-size: 0.9rem;
+}
+
+.profile-error {
+    margin: 12px 0;
+    color: #ff7086;
+    font-size: 0.9rem;
+}
+
+
+
+/* ===== FIX PROFILE EDIT BUTTON VISIBILITY ===== */
+
+.profile-page .profile-actions .edit-profile-button,
+.profile-page .profile-actions .profile-button {
+    background: #f12d4b !important;
+    color: #ffffff !important;
+    border: 1px solid #f12d4b !important;
+    font-weight: 700;
+    text-shadow: none;
+    opacity: 1;
+    width: 190px;
+    visibility: visible;
+}
+
+.profile-page .profile-actions .edit-profile-button:hover,
+.profile-page .profile-actions .profile-button:hover {
+    background: #c81e3a !important;
+    color: #ffffff !important;
+}
+
+/* Cancel button beside Save Changes */
+.profile-page .profile-form-actions .cancel-edit-button {
+    background: #202431 !important;
+    color: #ffffff !important;
+    border: 1px solid #697186 !important;
+    font-weight: 700;
+    text-shadow: none;
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-page .profile-form-actions .cancel-edit-button:hover:not(:disabled) {
+    background: #303647 !important;
+    color: #ffffff !important;
+    border-color: #f12d4b !important;
+}
+
+.profile-page .profile-form-actions .cancel-edit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Keep Logout clearly visible */
+.profile-page .profile-manage-account .logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    background: transparent !important;
+    color: #ff7187 !important;
+    border: 1px solid #f12d4b !important;
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.profile-page .profile-manage-account .logout-button:hover {
+    background: rgba(241, 45, 75, 0.13) !important;
+}
+
+
+.my-list-card-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.my-list-card-controls label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #a4adc2;
+    font-size: 0.85rem;
+}
+
+.my-list-card-controls select,
+.my-list-card-controls input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid #424859;
+    border-radius: 7px;
+    background: #171923;
+    color: #f5f5fa;
+    font: inherit;
+}
+
+.my-list-save-button,
+.my-list-remove-button {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.my-list-save-button {
+    background: #dc2626;
+    color: white;
+}
+
+.my-list-save-button:hover {
+    background: #b91c1c;
+}
+
+.my-list-remove-button {
+    border-color: #424859;
+    background: transparent;
+    color: #f87171;
+}
+
+.my-list-remove-button:hover {
+    background: #2a1820;
+    border-color: #f87171;
+}
+
+
+/* ===== CINEMATIC MY ANIME LIST ===== */
+
+.profile-anime-section {
+    color: #f5f5f7;
+}
+
+.profile-anime-section > h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.25rem;
+}
+
+.profile-anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.profile-anime-item {
+    min-width: 0;
+    overflow: hidden;
+    padding: 0 0 18px;
+    border: 1px solid #29232b;
+    border-radius: 13px;
+    background: linear-gradient(160deg, #19171c 0%, #0d0d10 100%);
+    box-shadow: 0 10px 28px rgb(0 0 0 / 22%);
+    transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+}
+
+.profile-anime-item:hover {
+    transform: translateY(-5px);
+    border-color: #a9263d;
+    box-shadow: 0 16px 38px rgb(0 0 0 / 40%);
+}
+
+/* Large anime posters */
+.profile-anime-item > a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.profile-anime-item > a > img {
+    display: block;
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    object-position: center 20%;
+    background: #171419;
+    transition: transform 300ms ease;
+}
+
+.profile-anime-item:hover > a > img {
+    filter: brightness(1.04);
+}
+
+.profile-anime-item > a > h3 {
+    margin: 16px 16px 12px;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 750;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* Status badge */
+.profile-anime-item .anime-status {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 16px 12px;
+    padding: 6px 10px;
+    border: 1px solid rgb(239 55 80 / 28%);
+    border-radius: 999px;
+    background: rgb(190 30 55 / 12%);
+    color: #ff788b;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Episode count and percentage */
+.profile-anime-item > p {
+    margin: 4px 16px 10px;
+    color: #b9b4bd;
+    font-size: 0.85rem;
+}
+
+.anime-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 16px 9px;
+    color: #c9c4cd;
+    font-size: 0.8rem;
+}
+
+.anime-progress-info strong {
+    color: #ff667c;
+    font-variant-numeric: tabular-nums;
+}
+
+.profile-anime-item .anime-progress {
+    display: block;
+    width: calc(100% - 32px);
+    height: 8px;
+    margin: 0 16px 16px;
+    overflow: hidden;
+    border: 1px solid #373039;
+    border-radius: 999px;
+    background: #302a32;
+}
+
+.profile-anime-item .anime-progress .anime-progress-fill {
+    display: block;
+    height: 100%;
+    min-width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #a5122e, #ff435f);
+    box-shadow: 0 0 12px rgb(255 50 82 / 35%);
+    transition: width 350ms ease;
+}
+
+/* Keep existing list-management controls consistent */
+.profile-anime-item .my-list-controls,
+.profile-anime-item .my-list-status-picker {
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.profile-anime-item select,
+.profile-anime-item input[type="number"] {
+    max-width: calc(100% - 32px);
+    padding: 9px 10px;
+    border: 1px solid #39313b;
+    border-radius: 7px;
+    background: #171419;
+    color: #f5f5f7;
+}
+
+.profile-anime-item button {
+    transition: background 180ms ease, border-color 180ms ease;
+}
+
+@media (max-width: 600px) {
+    .profile-anime-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .profile-anime-item > a > img {
+        height: 235px;
+    }
+
+    .profile-anime-item > a > h3 {
+        margin: 12px 10px;
+        font-size: 0.92rem;
+    }
+
+    .profile-anime-item .anime-status {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 0.68rem;
+    }
+
+    .profile-anime-item > p {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .anime-progress-info {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 0.7rem;
+    }
+
+    .profile-anime-item .anime-progress {
+        width: calc(100% - 20px);
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 1200px) {
+    .profile-dashboard,
+    .profile-content,
+    .profile-main-layout {
+        grid-template-columns: minmax(0, 1fr) 290px;
+        gap: 20px;
+    }
+
+    .profile-anime-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .profile-header,
+    .profile-banner,
+    .profile-hero {
+        gap: 30px;
+    }
+
+    .profile-avatar-container,
+    .profile-avatar-wrapper {
+        width: 190px;
+        height: 190px;
+    }
+}
+
+@media (max-width: 900px) {
+    .profile-dashboard,
+    .profile-content,
+    .profile-main-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-sidebar,
+    .profile-right-column {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    .profile-anime-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .profile-header,
+    .profile-banner,
+    .profile-hero {
+        padding: 35px 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-header,
+    .profile-banner,
+    .profile-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 30px 20px;
+    }
+
+    .profile-avatar-container,
+    .profile-avatar-wrapper {
+        width: 145px;
+        height: 145px;
+    }
+
+    .profile-info h1,
+    .profile-header-info h1,
+    .profile-hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .profile-dashboard,
+    .profile-content,
+    .profile-main-layout {
+        padding: 22px 16px 0;
+    }
+
+    .profile-anime-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .profile-sidebar,
+    .profile-right-column {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-list-filters,
+    .profile-anime-filters,
+    .profile-filter-tabs {
+        gap: 8px;
+    }
+
+    .profile-list-filters button,
+    .profile-anime-filters button,
+    .profile-filter-tabs button {
+        padding: 8px 13px;
+        font-size: 0.8rem;
+    }
+
+    .profile-meta,
+    .profile-details,
+    .profile-information {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
