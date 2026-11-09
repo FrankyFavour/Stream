@@ -3,6 +3,7 @@ import { AUTH_API_URL } from "./config";
 
 let accessToken = null;
 let refreshPromise = null;
+let csrfToken = null;
 
 export const setAccessToken = (token) => {
     accessToken = token;
@@ -37,11 +38,11 @@ async function ensureCsrfToken() {
     let csrfToken = getCookie("csrftoken");
 
     if (!csrfToken) {
-        await axios.get(`${AUTH_API_URL}csrf/`, {
+        const response = await axios.get(`${AUTH_API_URL}csrf/`, {
             withCredentials: true,
         });
 
-        csrfToken = getCookie("csrftoken");
+        csrfToken = response.data.csrftoken;
     }
 
     if (!csrfToken) {

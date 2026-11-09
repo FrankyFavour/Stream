@@ -21,7 +21,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_protect
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
-
+from django.middleware.csrf import get_token
 
 class CookieLoginView(APIView):
     permission_classes = [permissions.AllowAny]
@@ -42,7 +42,7 @@ class CookieLoginView(APIView):
             value=str(refresh_token),
             httponly=True,
             secure=not settings.DEBUG,
-            samesite="Lax",
+            samesite="None" if not settings.DEBUG else "Lax",
             path="/api/accounts/",
             max_age=7 * 24 * 60 * 60,
         )
@@ -69,7 +69,7 @@ class CookieLogoutView(generics.GenericAPIView):
         response.delete_cookie(
             key='refresh_token',
             path='/api/accounts/',
-            samesite='Lax',
+            samesite='None' if not settings.DEBUG else "Lax",
         )
         
         return response
@@ -183,5 +183,6 @@ class CurrentUserView(generics.RetrieveAPIView):
 @ensure_csrf_cookie
 def csrf_cookie_view(request):
     return JsonResponse({
-        "detail": "CSRF cookie set successfully."
-    })   
+        "detail": "CSRF cookie set successfully.",
+        "csrfToken": get_token(request),
+    })  
