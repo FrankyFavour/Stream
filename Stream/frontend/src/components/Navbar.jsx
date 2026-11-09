@@ -1,3 +1,4 @@
+import { API_ORIGIN, ANIME_API_URL } from "../services/config";
 import logo from "../assets/animestream_logo_high_contrast.png";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
@@ -15,7 +16,7 @@ function Navbar() {
 
     useEffect(() => {
         axios
-            .get("http://127.0.0.1:8000/api/anime/genres/")
+            .get(`${ANIME_API_URL}genres/`)
             .then((response) => {
                 setGenres(response.data);
             })
@@ -39,7 +40,7 @@ function Navbar() {
 
     const handleRandom = async () => {
         try{
-            const response = await axios.get(`http://127.0.0.1:8000/api/anime/random/`);
+            const response = await axios.get(`${ANIME_API_URL}random/`);
             navigate(`/anime/${response.data.id}`); 
         }catch (error) {
             console.error("Logout request failed:", error);
@@ -70,7 +71,7 @@ function Navbar() {
     const avatarUrl = user?.avatar
         ? user.avatar.startsWith("http")
             ? user.avatar
-            : `http://127.0.0.1:8000${user.avatar}`
+            : `${API_ORIGIN}${user.avatar}`
         : null;
 
     return (

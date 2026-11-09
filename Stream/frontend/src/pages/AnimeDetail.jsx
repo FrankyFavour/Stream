@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import api from "../services/api";
 import AuthContext from "../context/AuthContext";
 import "./AnimeDetail.css";
@@ -34,7 +33,7 @@ function AnimeDetails() {
         setAnime(null);
 
         axios
-            .get(`http://127.0.0.1:8000/api/anime/${id}/`)
+            .get(`${id}/`)
             .then((response) => {
                 setAnime(response.data);
             })

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 import "./Watch.css";
 
 function Watch() {
@@ -13,7 +13,7 @@ function Watch() {
 
     useEffect(() => {
         axios
-            .get(`http://127.0.0.1:8000/api/anime/watch/${slug}/`)
+            .get(`watch/${slug}/`)
             .then((response) => {
                 setAnime(response.data.anime);
                 setEpisodes(response.data.episode);

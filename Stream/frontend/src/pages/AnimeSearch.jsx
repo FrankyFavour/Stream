@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 import AnimeCard from "../components/AnimeCard";
 import "./Search.css";
 
@@ -21,16 +21,19 @@ function AnimeSearch() {
             return;
         }
 
-        let url = "";
+        let endpoint = "";
+        let params = {};
         if (query) {
-            url = `http://127.0.0.1:8000/api/anime/search/?q=${query}`;
+            endpoint = "search/";
+            params = { q: query };
         } else if (queryGenre) {
-            url = `http://127.0.0.1:8000/api/anime/genre/?genre=${queryGenre}`
+            endpoint = "genre/";
+            params = { genre: queryGenre };
         }
 
-        if (url) {
-            axios
-                .get(url)
+        if (endpoint) {
+            api
+                .get(endpoint, {params})
                 .then((response) => {
                     setAnimeList(response.data);
                     setLoading(false);

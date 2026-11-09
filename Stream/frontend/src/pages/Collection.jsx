@@ -1,11 +1,9 @@
-
+import { ANIME_API_URL } from "../services/config";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import AnimeCard from "../components/AnimeCard";
 import "./Collection.css";
-
-const API_URL = "http://127.0.0.1:8000/api/anime/";
 
 const collections = {
     popular: {
@@ -63,7 +61,7 @@ function Collection() {
 
             try {
                 const response = await axios.get(
-                    `${API_URL}${collection.endpoint}`,
+                    `${ANIME_API_URL}${collection.endpoint}`,
                     {
                         params: { page },
                     }

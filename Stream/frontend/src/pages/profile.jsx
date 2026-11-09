@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import authApi from "../services/auth";
 import api from "../services/api";
+import { API_ORIGIN } from "../services/config";
 import "./Profile.css";
-
-const API_ORIGIN = "http://localhost:8000";
 
 function getImageUrl(image) {
     if (!image) return "";

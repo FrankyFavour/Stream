@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ANIME_API_URL } from "../services/config";
 import AnimeCard from "../components/AnimeCard";
 import "./catalogue.css";
-
-const API_URL = "http://127.0.0.1:8000/api/anime/";
 
 function Catalogue() {
     const [animeList, setAnimeList] = useState([]);
@@ -23,7 +22,7 @@ function Catalogue() {
     // Fetch available genres once
     useEffect(() => {
         axios
-            .get(`${API_URL}genres/`)
+            .get(`${ANIME_API_URL}genres/`)
             .then((response) => {
                 setGenres(response.data);
             })
@@ -38,7 +37,7 @@ function Catalogue() {
         setError("");
 
         axios
-            .get(API_URL, {
+            .get(ANIME_API_URL, {
                 params: {
                     genre,
                     media_type: mediaType,
