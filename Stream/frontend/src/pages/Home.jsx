@@ -21,7 +21,7 @@ function Home() {
             api.get("recent/"),
             api.get("most-commented/"),
         ])
-        then((responses) => {
+        .then((responses) => {
                 setHeroAnime(responses[0].data);
                 setPopularAnime(responses[1].data.results.slice(0, 10));
                 setLatestAnime(responses[2].data.results.slice(0, 10));

@@ -42,7 +42,7 @@ async function ensureCsrfToken() {
             withCredentials: true,
         });
 
-        csrfToken = response.data.csrftoken;
+        csrfToken = response.data.csrfToken;
     }
 
     if (!csrfToken) {
