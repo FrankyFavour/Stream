@@ -32,7 +32,7 @@ function AnimeDetails() {
         setError("");
         setAnime(null);
 
-        axios
+        api
             .get(`${id}/`)
             .then((response) => {
                 setAnime(response.data);

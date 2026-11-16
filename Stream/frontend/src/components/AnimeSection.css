@@ -58,3 +58,23 @@
 .view-all-link:hover {
     color: #b5b5b5;
 }
+
+@media (max-width: 600px) {
+    .anime-section {
+        padding: 0 16px;
+        margin: 30px 0;
+    }
+
+    .anime-row {
+        grid-auto-columns: 125px;
+        gap: 12px;
+    }
+
+    .section-header h2 {
+        font-size: 18px;
+    }
+
+    .view-all-link {
+        font-size: 12px;
+    }
+}

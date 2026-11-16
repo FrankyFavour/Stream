@@ -12,7 +12,7 @@ function Watch() {
     const [selectedEpisode, setSelectedEpisode] = useState(1)
 
     useEffect(() => {
-        axios
+        api
             .get(`watch/${slug}/`)
             .then((response) => {
                 setAnime(response.data.anime);

@@ -820,8 +820,9 @@ function Profile() {
 
                     {/* Anime Hot Take */}
                     <section className="profile-quote-card">
+                        What's your HOT TAKE?
                         <p>
-                            <h3>What's your HOT TAKE?</h3>
+                            
                             {user?.hot_take ||
                                 "Good anime doesn't just entertain you, it stays with you."}
                         </p>
